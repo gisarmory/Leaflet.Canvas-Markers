@@ -233,6 +233,7 @@ function layerFactory(L) {
             if (marker.canvas_img) {
 
                 self._drawImage(marker, pointPos);
+                self._drawText(marker, pointPos);
             }
             else {
 
@@ -247,6 +248,7 @@ function layerFactory(L) {
                     else {
 
                         self._drawImage(marker,pointPos);
+                        self._drawText(marker,pointPos);
                     }
                 }
                 else {
@@ -264,6 +266,7 @@ function layerFactory(L) {
                         self._imageLookup[iconUrl][2].forEach(function (e) {
 
                             self._drawImage(e[0],e[1]);
+                            self._drawText(e[0],e[1]);
                         });
                     }
                 }
@@ -281,6 +284,21 @@ function layerFactory(L) {
                 options.iconSize[0],
                 options.iconSize[1]
             );
+
+        },
+
+        _drawText: function (marker, pointPos){
+
+            var options = marker.options.icon.options;
+            if(options.text){
+                this._context.font = options.textFont,
+                this._context.fillStyle = options.textFillStyle,
+                this._context.fillText(
+                    options.text,
+                    pointPos.x - options.textAnchor[0],
+                    pointPos.y - options.textAnchor[1],
+                );
+            }
         },
 
         _reset: function () {
