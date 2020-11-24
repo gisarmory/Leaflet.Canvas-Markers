@@ -1,4 +1,4 @@
-中文 | English
+中文 | [English](./README-en.md)
 
 # Leaflet.Canvas-Markers
 
@@ -14,9 +14,9 @@
 
 ## 在线示例
 
-加载10万个Marker
+[加载10万个Marker](http://gisarmory.xyz/Leaflet.Canvas-Markers/examples/index.html)
 
-加载10万个标签
+[加载10万个标签](http://gisarmory.xyz/Leaflet.Canvas-Markers/examples/index_label.html)
 
 
 
@@ -33,6 +33,35 @@
 ```js
 // 添加一个图层
 var ciLayer = L.canvasIconLayer({}).addTo(map);
+
+// 定义一个marker 
+var marker =  L.marker([58.5578, 29.0087], {icon: icon});
+
+// 把marker添加到图层
+ciLayer.addMarker(marker);
+```
+
+
+
+## 使用标签
+
+在定义icon时，增加`text`、`textAnchor`、`textFont`、`textFillStyle`来设置标签里的文字。
+
+```js
+// 添加一个图层
+var ciLayer = L.canvasIconLayer({}).addTo(map);
+
+ //定义一个icon设置图片和文字
+var icon = L.icon({
+    iconUrl: './img/bg.png',	//背景图片
+    iconSize: [84, 34],			//设置图标大小
+    iconAnchor: [40, 20],		//设置图标偏移
+
+    text:i.toString(),			//添加文字
+    textAnchor: [5, 0],         //设置文本偏移
+    textFont:'14px bold',       //设置字体大小和样式
+    textFillStyle:'#FFFFFF'     //设置字体颜色
+});
 
 // 定义一个marker 
 var marker =  L.marker([58.5578, 29.0087], {icon: icon});
@@ -93,6 +122,8 @@ ciLayer.addMarker(marker);
 
 ## 参考
 
-https://github.com/corg/Leaflet.Canvas-Markers
+[https://github.com/corg/Leaflet.Canvas-Markers](https://github.com/corg/Leaflet.Canvas-Markers)
 
-https://github.com/eJuke/Leaflet.Canvas-Markers
+[https://github.com/eJuke/Leaflet.Canvas-Markers](https://github.com/eJuke/Leaflet.Canvas-Markers)
+
+[https://github.com/yakitoritabetai/Leaflet.LabelTextCollision](https://github.com/yakitoritabetai/Leaflet.LabelTextCollision)
