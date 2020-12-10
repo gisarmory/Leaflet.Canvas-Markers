@@ -124,6 +124,7 @@ function layerFactory(L) {
             if (this.options.pane) this.getPane().appendChild(this._canvas);
             else map._panes.overlayPane.appendChild(this._canvas);
 
+            map.on('move', this._reset, this);
             map.on('moveend', this._reset, this);
             map.on('resize',this._reset,this);
 
@@ -143,6 +144,7 @@ function layerFactory(L) {
             map.off('click', this._executeListeners, this);
             map.off('mousemove', this._executeListeners, this);
 
+            map.off('move', this._reset, this);
             map.off('moveend', this._reset, this);
             map.off('resize',this._reset,this);
 
