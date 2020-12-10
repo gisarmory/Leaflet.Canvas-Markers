@@ -120,6 +120,14 @@ ciLayer.addMarker(marker);
 
 
 
+## 和原代码库的区别
+
+1. 解决了地图缩放时会飘的问题
+2. 解决了移动端手指捏合缩放时会飘的问题
+3. 增加了添加文字接口，可以实现标签功能。
+
+
+
 ## 参考
 
 [https://github.com/corg/Leaflet.Canvas-Markers](https://github.com/corg/Leaflet.Canvas-Markers)
